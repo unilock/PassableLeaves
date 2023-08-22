@@ -25,12 +25,12 @@
     "passableleaves.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.10",
+    "fabricloader": "*",
     "fabric": "*",
     "minecraft": "1.19.2",
-    "owo-lib": "^0.8.1"
+    "owo-lib": "*"
   },
   "recommends": {
-    "nbtcrafting": "^2.0.0"
+    "nbtcrafting": "*"
   }
 }
