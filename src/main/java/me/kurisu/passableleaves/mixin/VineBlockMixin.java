@@ -1,8 +1,8 @@
 package me.kurisu.passableleaves.mixin;
 
+import me.kurisu.passableleaves.PassableLeaves;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.VineBlock;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
@@ -17,7 +17,7 @@ public class VineBlockMixin {
     @Inject(at = @At("HEAD"), method = "shouldConnectTo", cancellable = true)
     private static void passableLeaves_shouldConnectTo(BlockView world, BlockPos neighborPos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
         BlockState blockstate = world.getBlockState(neighborPos);
-        if (blockstate.isIn(BlockTags.LEAVES)) {
+        if (PassableLeaves.isLeaves(blockstate)) {
             cir.setReturnValue(true);
         }
     }

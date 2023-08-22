@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "id": "byg:embur_gel_vines",
+      "required": false
+    },
+    {
+      "id": "byg:imparius_vine",
+      "required": false
+    },
+    {
+      "id": "byg:poison_ivy",
+      "required": false
+    },
+    {
+      "id": "byg:shulkren_vine",
+      "required": false
+    },
+    {
+      "id": "byg:skyris_vine",
+      "required": false
+    }
+  ]
+}

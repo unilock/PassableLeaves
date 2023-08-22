@@ -1,8 +1,8 @@
 package me.kurisu.passableleaves.mixin;
 
+import me.kurisu.passableleaves.PassableLeaves;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SnowBlock;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldView;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,7 +16,7 @@ public class SnowBlockMixin {
     @Inject(method = "canPlaceAt", at = @At("HEAD"), cancellable = true)
     private void passableLeaves_canPlaceAt(BlockState state, WorldView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         BlockState blockState = world.getBlockState(pos.down());
-        if (blockState.isIn(BlockTags.LEAVES)) {
+        if (PassableLeaves.isLeaves(blockState)) {
             cir.setReturnValue(true);
         }
     }

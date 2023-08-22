@@ -11,7 +11,6 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
@@ -65,7 +64,7 @@ public abstract class EntityMixin implements EntityAccess {
         Box contractedBoundingBox = this.getBoundingBox().contract(0.1F);
         return BlockPos.stream(contractedBoundingBox).filter((pos) -> {
             BlockState blockState = this.world.getBlockState(pos);
-            return blockState.isIn(BlockTags.LEAVES);
+            return PassableLeaves.isLeaves(blockState);
         }).findFirst().orElse(null);
     }
 
